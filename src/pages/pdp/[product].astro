@@ -1,0 +1,49 @@
+---
+import type { PdpQuery } from "../../gql/graphql";
+
+import getPdp from "../../queries/getPdp";
+import Layout from "../../layouts/Default.astro";
+import ComponentRenderer from "../../components/ComponentRenderer.astro";
+import ProductDetail from "../../components/ProductDetail.astro";
+import { SEO } from "astro-seo";
+
+export function getStaticPaths() {
+  return [
+    { params: { product: "face-serum" } },
+    { params: { product: "face-cream" } },
+    { params: { product: "eye-contour" } },
+    { params: { product: "bundle" } },
+  ];
+}
+
+const { product } = Astro.params;
+const { pdp }: PdpQuery = await getPdp(product);
+---
+
+<Layout>
+  <SEO
+    slot="seo"
+    title={pdp?.title || ""}
+    description={pdp?.description || ""}
+    openGraph={{
+      basic: {
+        title: pdp?.title || "",
+        type: "website",
+        image: pdp?.ogImage?.url || "",
+      },
+      optional: {
+        siteName: "SKNCRE, a Hygraph cosmetics brand demo",
+      },
+    }}
+    twitter={{
+      card: "summary_large_image",
+      description: pdp?.description || "",
+    }}
+  />
+
+  <ProductDetail product={pdp?.product} />
+
+  <section class="mb-12">
+    <ComponentRenderer data={pdp?.components} />
+  </section>
+</Layout>

@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import ComponentRenderer from "./ComponentRenderer.astro";
+
+interface Props {
+  __typename: string;
+  title: string;
+  image: {
+    url: string;
+  };
+
+  items: [
+    {
+      __typename: string;
+      text: string;
+      index: number;
+    },
+  ];
+}
+
+type TutorialItem = {
+  __typename: string;
+  text: string;
+  index: number;
+};
+
+const { title, image, items } = Astro.props;
+
+const tutorialItems: TutorialItem[] = [];
+
+items.forEach((item, index) => {
+  tutorialItems.push({ ...item, index });
+});
+---
+
+<section class="relative">
+  <Image
+    src={image.url}
+    alt={title}
+    width={1440}
+    height={532}
+    class="absolute h-full w-full object-cover"
+    widths={[640, 1280, 1440]}
+    sizes="100vw"
+    loading="lazy"
+  />
+
+  <div class="max-w-2xl px-12 py-24 md:px-24 md:py-36 relative">
+    <h1 class="text-6xl font-bold mb-12 text-primary">{title}</h1>
+
+    <ul>
+      <ComponentRenderer data={tutorialItems} />
+    </ul>
+  </div>
+</section>

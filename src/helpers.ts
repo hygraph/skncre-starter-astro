@@ -4,6 +4,10 @@ import ProductHighlight from "./components/ProductHighlight.astro";
 import Editorial from "./components/Editorial.astro";
 import Cta from "./components/Cta.astro";
 import Card from "./components/Card.astro";
+import Tutorial from "./components/Tutorial.astro";
+import TutorialItem from "./components/TutorialItem.astro"
+import ProductList from "./components/ProductList.astro"
+
 import NoComponentFile from "./components/NoComponentFile.astro";
 
 type Mapping = {
@@ -16,7 +20,10 @@ export const mapping: Mapping = {
   ProductHighlight,
   Routine,
   Cta,
-  Card
+  Card,
+  Tutorial,
+  TutorialItem,
+  ProductList
 };
 
 export function getComponentForName(name: string) {
