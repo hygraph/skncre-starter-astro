@@ -1,0 +1,23 @@
+---
+import BaseHeader from "../components/BaseHeader.astro";
+import BaseFooter from "../components/BaseFooter.astro";
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <slot name="seo" />
+  </head>
+  <body class="bg-[#efefef]">
+    <main class="max-w-screen-2xl mx-auto bg-white">
+      <BaseHeader />
+      <slot />
+      <BaseFooter />
+    </main>
+  </body>
+</html>

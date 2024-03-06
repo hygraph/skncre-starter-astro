@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background: #efefef;
+    @apply text-dark;
+  }
+
+  img,
+  video {
+    width: 100%;
+    height: auto;
+  }
+
+  .cta {
+    @apply uppercase font-bold px-4 py-3 bg-primary text-light border border-primary;
+  }
+
+  .cta:hover {
+    @apply bg-tertiary text-primary;
+  }
+
+  .product-detail article p {
+    @apply mb-4;
+  }
+}

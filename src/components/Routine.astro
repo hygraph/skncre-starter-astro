@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  __typename: string;
+  title: string;
+  chapeau: string;
+  description: string;
+  cta: string;
+  url: string;
+  image: {
+    url: string;
+  };
+}
+
+const { chapeau, cta, url, title, description, image } = Astro.props;
+---
+
+<section class="py-16 relative bg-light">
+  <Image
+    src={image.url}
+    alt={title}
+    width={768}
+    height={510}
+    class="lg:w-2/4"
+    widths={[640, 1280, 1440]}
+    sizes="100vw"
+    loading="lazy"
+  />
+
+  <div class="w-full bg-tertiary p-8 lg:max-w-2xl lg:absolute top-32 right-32">
+    <h2 class="mb-8 font-title">
+      {
+        chapeau ? (
+          <span class="block text-primary font-bold text-4xl lg:text-6xl">
+            {chapeau}
+          </span>
+        ) : null
+      }
+
+      {
+        title ? (
+          <span class="block text-dark font-bold text-4xl lg:text-6xl ml-8 -mt-2">
+            {title}
+          </span>
+        ) : null
+      }
+    </h2>
+
+    {description ? <p class="text-xl ml-8 mb-8">{description}</p> : null}
+
+    {
+      url ? (
+        <a href={url} class="inline-block cta ml-8">
+          {cta}
+        </a>
+      ) : null
+    }
+  </div>
+</section>

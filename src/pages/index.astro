@@ -1,0 +1,36 @@
+---
+import type { PageQuery } from "../gql/graphql";
+
+import getPage from "../queries/getPage";
+import Layout from "../layouts/Default.astro";
+import ComponentRenderer from "../components/ComponentRenderer.astro";
+import { SEO } from "astro-seo";
+
+const { page }: PageQuery = await getPage("home");
+---
+
+<Layout>
+  <SEO
+    slot="seo"
+    title={page?.title || ""}
+    description={page?.description || ""}
+    openGraph={{
+      basic: {
+        title: page?.title || "",
+        type: "website",
+        image: page?.ogImage?.url || "",
+      },
+      optional: {
+        siteName: "SKNCRE, a Hygraph cosmetics brand demo",
+      },
+    }}
+    twitter={{
+      card: "summary_large_image",
+      description: page?.description || "",
+    }}
+  />
+
+  <section class="mb-12">
+    <ComponentRenderer data={page?.components} />
+  </section>
+</Layout>

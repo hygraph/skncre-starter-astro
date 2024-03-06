@@ -1,0 +1,18 @@
+---
+interface Props {
+  __typename: string;
+}
+
+const { __typename } = Astro.props;
+---
+
+<div
+  class="bg-red-200 text-red-800 p-4 mb-4 border-4 border-red-400 overflow-auto m-8"
+>
+  <p class="mb-4">
+    No Component file or wrong name in CMS for
+    <strong>{__typename}</strong>
+  </p>
+  <p>Props:</p>
+  <pre>{ JSON.stringify(Astro.props, null, 2) }</pre>
+</div>

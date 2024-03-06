@@ -1,0 +1,11 @@
+---
+import { getComponentForName } from "../helpers";
+const { data } = Astro.props;
+---
+
+{
+  data.map((component: any) => {
+    const Component = getComponentForName(component.__typename);
+    return <Component {...component} />;
+  })
+}

@@ -1,0 +1,33 @@
+{
+  "name": "skncre-cosmetics-hygraph-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "codegen": "graphql-codegen"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.6",
+    "@astrojs/sitemap": "^3.1.1",
+    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/vue": "^4.0.8",
+    "@fontsource-variable/inter": "^5.0.17",
+    "@fontsource-variable/plus-jakarta-sans": "^5.0.20",
+    "astro": "^4.4.12",
+    "astro-meta-tags": "^0.2.1",
+    "astro-seo": "^0.8.3",
+    "graphql-request": "^6.1.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "5.0.2",
+    "@graphql-codegen/client-preset": "4.2.4",
+    "@graphql-codegen/typescript": "4.0.6"
+  }
+}

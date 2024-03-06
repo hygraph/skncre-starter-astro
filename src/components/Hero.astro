@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  __typename: string;
+  title: string;
+  description: string;
+  image: {
+    url: string;
+  };
+}
+
+const { title, description, image } = Astro.props;
+---
+
+<section class="md:aspect-[1440/632] relative">
+  <Image
+    src={image.url}
+    alt={title}
+    width={1440}
+    height={532}
+    class="md:absolute w-full"
+    widths={[640, 1280, 1440]}
+    sizes="100vw"
+    loading="eager"
+  />
+  <div
+    class="p-8 md:p-0 md:absolute md:max-w-md lg:max-w-xl md:top-28 md:left-12 lg:top-44 lg:left-56"
+  >
+    <h1
+      class="font-title font-bold text-4xl sm:text-6xl mb-8 xl:text-7xl 2xl:text-8xl"
+    >
+      {title.split("your")[0]}
+      <span class="text-primary">your</span>
+      {title.split("your")[1]}
+    </h1>
+    <p v-if="description" class="text-xl">
+      {description}
+    </p>
+  </div>
+</section>
