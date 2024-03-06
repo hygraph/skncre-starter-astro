@@ -1,6 +1,7 @@
 # SKNCRE a Hygraph cosmetics brand demo
 
-Feel free to check [the Astro documentation](https://docs.astro.build) or jump into the [Astro Discord server](https://astro.build/chat).
+See the [running demo](https://skncre-cosmetics-hygraph-astro.vercel.app/)
+Join [the Hygraph community](https://slack.hygraph.com) or read the [Hygraph docs](https://hygraph.com/docs).
 
 ## Setup
 
@@ -24,4 +25,4 @@ Start the development server on `http://localhost:4321`:
 npm dev
 ```
 
-Join [the Astro community](https://slack.hygraph.com) or jump read the [Hygraph docs](https://hygraph.com/docs).
+Feel free to check [the Astro documentation](https://docs.astro.build) or jump into the [Astro Discord server](https://astro.build/chat).
