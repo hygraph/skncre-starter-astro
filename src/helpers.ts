@@ -29,3 +29,7 @@ export const mapping: Mapping = {
 export function getComponentForName(name: string) {
   return mapping[name] ?? NoComponentFile
 }
+
+export function isPreview() {
+  return import.meta.env.HYGRAPH_IS_PREVIEW === "yes"
+}

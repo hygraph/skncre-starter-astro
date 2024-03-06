@@ -6,6 +6,7 @@ import Layout from "../../layouts/Default.astro";
 import ComponentRenderer from "../../components/ComponentRenderer.astro";
 import ProductDetail from "../../components/ProductDetail.astro";
 import { SEO } from "astro-seo";
+import { isPreview } from "../../helpers";
 
 export function getStaticPaths() {
   return [
@@ -17,7 +18,10 @@ export function getStaticPaths() {
 }
 
 const { product } = Astro.params;
-const { pdp }: PdpQuery = await getPdp(product);
+const { pdp }: PdpQuery = await getPdp(
+  product,
+  isPreview() ? "DRAFT" : "PUBLISHED"
+);
 ---
 
 <Layout>

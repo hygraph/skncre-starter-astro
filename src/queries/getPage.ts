@@ -1,5 +1,6 @@
 import { request } from "graphql-request";
 import { graphql } from "../gql"
+import type { Stage } from "../gql/graphql";
 
 const endpoint = import.meta.env.HYGRAPH_ENDPOINT;
 
@@ -100,11 +101,10 @@ const query = graphql(`
   }
 `);
 
-
-
-export default async function (slug: string) {
+export default async function (slug: string, stage: "PUBLISHED" | "DRAFT") {
   const variables = {
-    slug: slug || "home"
+    slug: slug || "home",
+    stage: stage as Stage || "PUBLISHED" as Stage
   };
 
   const data = await request(

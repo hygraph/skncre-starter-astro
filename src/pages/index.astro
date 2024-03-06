@@ -5,8 +5,12 @@ import getPage from "../queries/getPage";
 import Layout from "../layouts/Default.astro";
 import ComponentRenderer from "../components/ComponentRenderer.astro";
 import { SEO } from "astro-seo";
+import { isPreview } from "../helpers";
 
-const { page }: PageQuery = await getPage("home");
+const { page }: PageQuery = await getPage(
+  "home",
+  isPreview() ? "DRAFT" : "PUBLISHED"
+);
 ---
 
 <Layout>
