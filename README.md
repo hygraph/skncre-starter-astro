@@ -1,7 +1,7 @@
 # SKNCRE a Hygraph cosmetics brand demo
 
-See the [running demo](https://skncre-cosmetics-hygraph-astro.vercel.app/)
-Join [the Hygraph community](https://slack.hygraph.com) or read the [Hygraph docs](https://hygraph.com/docs).
+- See the [running demo](https://skncre-cosmetics-hygraph-astro.vercel.app/).
+- Join [the Hygraph community](https://slack.hygraph.com) for any questions or read the [Hygraph docs](https://hygraph.com/docs).
 
 ## Setup
 
