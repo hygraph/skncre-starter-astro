@@ -14,6 +14,6 @@ export default defineConfig({
     sitemap(),
   ],
   image: {
-    domains: ["https://media.graphassets.com"],
+    domains: ["https://**.graphassets.com"],
   },
 });
